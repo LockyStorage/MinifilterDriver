@@ -1,0 +1,44 @@
+#include <windows.h>
+
+#define VER_FILETYPE    VFT_DRV
+#define VER_FILESUBTYPE VFT2_DRV_SYSTEM
+#define VER_FILEDESCRIPTION_STR     "LockyStorageDriver Filter Driver"
+#define VER_INTERNALNAME_STR        "LockyStorageDriver.sys"
+
+#if DBG
+#define VER_DBG VS_FF_DEBUG
+#else
+#define VER_DBG 0
+#endif
+
+#ifdef RC_INVOKED
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION             1,0,0,0
+PRODUCTVERSION          1,0,0,0
+FILEFLAGSMASK           VS_FFI_FILEFLAGSMASK
+FILEFLAGS               VER_DBG
+FILEOS                  VOS_NT
+FILETYPE                VFT_DRV
+FILESUBTYPE             VFT2_DRV_SYSTEM
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904b0"
+        BEGIN
+		VALUE "Comments",         ""
+		VALUE "CompanyName",      "Jannik Müller"
+		VALUE "FileDescription",  "LockyStorage Support Driver"
+		VALUE "FileVersion",      "V1.0.0.0"
+		VALUE "InternalName",     "LockyStorage Support Driver"
+		VALUE "LegalCopyright",   "(C) 2021 Jannik Müller"
+		VALUE "OriginalFilename", "LockyStorageDriver.sys"
+		VALUE "ProductName",      "LockyStorage Support Driver"
+		VALUE "ProductVersion",	  "V1.0.0.0"
+        END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x0409,1200
+	END
+END
+#endif
